@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Document</title>
+    <script src="../server.js"></script>
+  </head>
+  <body>
+    <form id='myForm' action="/login" method="post">
+      <fieldset style="height: 100%;">
+        <legend>Login</legend>
+          <label for="">Tell Your Domain</label>
+          <input type="text"  id="domain" placeholder="XXXX.myshopify.com" > <br>
+          <button id="login"  style="display: flex; justify-content: center; align-items: center; background-color: grey; margin-top: 20px  ;cursor: pointer;">
+            <img src="/shopify_icon.png" alt="">Login with shopify</button>
+
+      </form>
+        <br>
+
+
+
+
+      </fieldset>
+
+
+    <!-- <script>
+      let form= document.getElementById('myForm')
+      form.addEventListener('submit', function(event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+
+        // Get the value from the input field
+        let inputValue = document.getElementById('domain').value;
+
+        fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ myShop: inputValue })
+            })
+
+    });
+        let login=document.getElementById('login')
+        login.addEventListener('click', function(){
+            window.location.href = '/login/shopify';
+        })
+    </script> -->
+    <script>
+      let form= document.getElementById('myForm')
+      form.addEventListener('submit', function(event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+        // Get the value from the input field
+        let inputValue = document.getElementById('domain').value;
+        window.location.href = `/login/shopify?domain=${inputValue}`;
+      })
+    </script>
+  </body>
+</html>
